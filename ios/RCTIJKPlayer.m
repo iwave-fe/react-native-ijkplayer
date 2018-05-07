@@ -127,7 +127,7 @@
 - (void)setSeek:(int)seekTime
 {
     if(_player && _player.isPreparedToPlay)
-        [_player setCurrentPlaybackTime:seekTime * 1000.0];
+        [_player setCurrentPlaybackTime:seekTime];
 }
 
 - (void)onProgressUpdate
