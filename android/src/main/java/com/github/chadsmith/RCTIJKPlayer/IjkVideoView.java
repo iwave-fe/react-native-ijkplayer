@@ -45,6 +45,7 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
     // settable by the client
     private Uri mUri;
     private Map<String, String> mHeaders;
+    private String mUserAgent;
 
     // all possible internal states
     private static final int STATE_ERROR = -1;
@@ -739,12 +740,18 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
         ijkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "packet-buffering", 0);
         ijkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "http-detect-range-support", 0);
         ijkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_CODEC, "skip_loop_filter", 48);
+        if(mUserAgent != null)
+            ijkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "user_agent", mUserAgent);
         return ijkMediaPlayer;
     }
 
     public void setVolume(float left, float right) {
         if(mMediaPlayer != null)
             mMediaPlayer.setVolume(left, right);
+    }
+
+    public void setUserAgent(final String userAgent) {
+        mUserAgent = userAgent;
     }
 
 }

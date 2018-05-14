@@ -88,6 +88,7 @@
 
     NSDictionary* headers = [source objectForKey:@"headers"];
     NSString* uri = [source objectForKey:@"uri"];
+    NSString* userAgent = [source objectForKey:@"userAgent"];
     NSURL* url = [NSURL URLWithString:uri];
 
     IJKFFOptions *ijkOptions = [IJKFFOptions optionsByDefault];
@@ -99,6 +100,8 @@
             [headerArray addObject:[NSString stringWithFormat:@"%@=%@", key, [headers objectForKey:key] ]];
         [ijkOptions setFormatOptionValue:[headerArray componentsJoinedByString:@"\r\n"] forKey:@"headers"];
     }
+    if(userAgent)
+        [ijkOptions setFormatOptionValue:userAgent forKey:@"user-agent"];
     _player = [[IJKFFMoviePlayerController alloc] initWithContentURL:url withOptions:ijkOptions];
     _player.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     _player.view.frame = self.bounds;

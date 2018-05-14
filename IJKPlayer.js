@@ -80,8 +80,8 @@ export default class IJKPlayer extends Component {
   };
 
   render() {
-    const headers = this.props.headers || {};
     const source = resolveAssetSource(this.props.source) || {};
+    const { headers, userAgent } = source;
 
     let uri = source.uri || '';
     if (uri && uri.match(/^\//)) {
@@ -94,6 +94,7 @@ export default class IJKPlayer extends Component {
       src: {
         uri,
         headers,
+        userAgent,
       },
       onVideoLoadStart: this._onLoadStart,
       onVideoLoad: this._onLoad,
@@ -129,10 +130,11 @@ IJKPlayer.propTypes = {
   onVideoEnd: PropTypes.func,
 
   /* Wrapper component */
-  headers: PropTypes.object,
   source: PropTypes.oneOfType([
     PropTypes.shape({
-      uri: PropTypes.string
+      uri: PropTypes.string,
+      headers: PropTypes.object,
+      userAgent: PropTypes.string,
     }),
     // Opaque type returned by require('./video.mp4')
     PropTypes.number

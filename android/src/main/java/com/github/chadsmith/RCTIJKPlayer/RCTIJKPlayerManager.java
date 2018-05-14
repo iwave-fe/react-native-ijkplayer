@@ -19,6 +19,7 @@ public class RCTIJKPlayerManager extends SimpleViewManager<RCTIJKPlayer> {
     public static final String PROP_SRC = "src";
     public static final String PROP_SRC_HEADERS = "headers";
     public static final String PROP_SRC_URI = "uri";
+    public static final String PROP_SRC_USER_AGENT = "userAgent";
     public static final String PROP_MUTED = "muted";
     public static final String PROP_PAUSED = "paused";
     public static final String PROP_SEEK = "seek";
@@ -51,7 +52,8 @@ public class RCTIJKPlayerManager extends SimpleViewManager<RCTIJKPlayer> {
         ReadableMap headers = null;
         if (src.hasKey(PROP_SRC_HEADERS))
             headers = src.getMap(PROP_SRC_HEADERS);
-        videoView.setSrc(uri, headers);
+        String userAgent = src.getString(PROP_SRC_USER_AGENT);
+        videoView.setSrc(uri, headers, userAgent);
     }
 
     @ReactProp(name = PROP_MUTED, defaultBoolean = false)

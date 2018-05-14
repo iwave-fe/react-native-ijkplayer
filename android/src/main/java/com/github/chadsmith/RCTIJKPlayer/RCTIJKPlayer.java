@@ -123,7 +123,7 @@ public class RCTIJKPlayer extends FrameLayout implements LifecycleEventListener,
             });
     }
 
-    public void setSrc(final String uriString, final ReadableMap readableMap) {
+    public void setSrc(final String uriString, final ReadableMap readableMap, final String userAgent) {
         if(uriString == null)
             return;
 
@@ -135,6 +135,9 @@ public class RCTIJKPlayer extends FrameLayout implements LifecycleEventListener,
         WritableMap event = Arguments.createMap();
         event.putMap(RCTIJKPlayerManager.PROP_SRC, src);
         mEventEmitter.receiveEvent(getId(), Events.EVENT_LOAD_START.toString(), event);
+
+        if(userAgent != null)
+            ijkVideoView.setUserAgent(userAgent);
 
         if(readableMap != null) {
             Map<String, String> headerMap = new HashMap<>();
