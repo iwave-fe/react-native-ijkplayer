@@ -1,5 +1,6 @@
 package com.github.chadsmith.RCTIJKPlayer;
 
+import android.graphics.Bitmap;
 import android.os.Handler;
 import android.widget.FrameLayout;
 
@@ -12,6 +13,9 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
@@ -177,6 +181,25 @@ public class RCTIJKPlayer extends FrameLayout implements LifecycleEventListener,
             ijkVideoView.setVolume(0, 0);
         } else {
             ijkVideoView.setVolume(mVolume, mVolume);
+        }
+    }
+
+    public void setSnapshotPath(final String snapshotPath) throws IOException {
+        if(ijkVideoView == null)
+            return;
+        Bitmap bitmap = ijkVideoView.getBitmap();
+        if(bitmap == null)
+            return;
+        File file = new File(snapshotPath);
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+        }
+        finally {
+            bitmap.recycle();
+            if (fos != null)
+                fos.close();
         }
     }
 

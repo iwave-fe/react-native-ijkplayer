@@ -130,6 +130,14 @@
         [_player setCurrentPlaybackTime:seekTime];
 }
 
+- (void)setSnapshotPath:(NSString *)snapshotPath
+{
+    if(_player && _player.isPlaying) {
+        UIImage *image = [_player thumbnailImageAtCurrentTime];
+        [UIImagePNGRepresentation(image) writeToFile:snapshotPath atomically:YES];
+    }
+}
+
 - (void)onProgressUpdate
 {
     if(_player && _player.isPlaying && self.onVideoProgress) {

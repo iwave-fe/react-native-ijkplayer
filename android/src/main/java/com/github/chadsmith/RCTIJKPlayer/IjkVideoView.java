@@ -19,6 +19,7 @@ package com.github.chadsmith.RCTIJKPlayer;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -132,7 +133,13 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
     private void initVideoView(Context context) {
         mAppContext = context.getApplicationContext();
 
-        SurfaceRenderView renderView = new SurfaceRenderView(getContext());
+        TextureRenderView renderView = new TextureRenderView(getContext());
+        if (mMediaPlayer != null) {
+            renderView.getSurfaceHolder().bindToMediaPlayer(mMediaPlayer);
+            renderView.setVideoSize(mMediaPlayer.getVideoWidth(), mMediaPlayer.getVideoHeight());
+            renderView.setVideoSampleAspectRatio(mMediaPlayer.getVideoSarNum(), mMediaPlayer.getVideoSarDen());
+            renderView.setAspectRatio(mCurrentAspectRatio);
+        }
         setRenderView(renderView);
 
         mVideoWidth = 0;
@@ -670,6 +677,12 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
         } else {
             mSeekWhenPrepared = msec;
         }
+    }
+
+    public Bitmap getBitmap() {
+        if(isInPlaybackState())
+            return mRenderView.getBitmap();
+        return null;
     }
 
     @Override

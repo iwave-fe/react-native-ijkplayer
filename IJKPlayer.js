@@ -23,6 +23,10 @@ export default class IJKPlayer extends Component {
     this.setNativeProps({ seek: time });
   };
 
+  snapshot = (snapshotPath) => {
+    this.setNativeProps({ snapshotPath });
+  };
+
   _assignRoot = (component) => {
     this._root = component;
   };
@@ -114,6 +118,7 @@ IJKPlayer.propTypes = {
   /* Native only */
   src: PropTypes.object,
   seek: PropTypes.number,
+  snapshotPath: PropTypes.string,
   onVideoLoadStart: PropTypes.func,
   onVideoLoad: PropTypes.func,
   onVideoBuffer: PropTypes.func,
@@ -157,5 +162,6 @@ const RCTIJKPlayer = requireNativeComponent('RCTIJKPlayer', IJKPlayer, {
   nativeOnly: {
     src: true,
     seek: true,
+    snapshotPath: true,
   },
 });

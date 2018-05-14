@@ -23,6 +23,7 @@ public class RCTIJKPlayerManager extends SimpleViewManager<RCTIJKPlayer> {
     public static final String PROP_PAUSED = "paused";
     public static final String PROP_SEEK = "seek";
     public static final String PROP_VOLUME = "volume";
+    public static final String PROP_SNAPSHOT_PATH = "snapshotPath";
 
     @Override
     public String getName() {
@@ -66,6 +67,11 @@ public class RCTIJKPlayerManager extends SimpleViewManager<RCTIJKPlayer> {
     @ReactProp(name = PROP_SEEK, defaultDouble = 0.0)
     public void setSeek(final RCTIJKPlayer videoView, final double seekTime) {
         videoView.setSeekModifier(seekTime);
+    }
+
+    @ReactProp(name = PROP_SNAPSHOT_PATH)
+    public void setSnapshotPath(final RCTIJKPlayer videoView, final String snapshotPath) throws IOException {
+        videoView.setSnapshotPath(snapshotPath);
     }
 
 }

@@ -17,6 +17,7 @@
 
 package com.github.chadsmith.RCTIJKPlayer;
 
+import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -49,6 +50,8 @@ public interface IRenderView {
     void addRenderCallback(@NonNull IRenderCallback callback);
 
     void removeRenderCallback(@NonNull IRenderCallback callback);
+
+    Bitmap getBitmap();
 
     interface ISurfaceHolder {
         void bindToMediaPlayer(IMediaPlayer mp);
