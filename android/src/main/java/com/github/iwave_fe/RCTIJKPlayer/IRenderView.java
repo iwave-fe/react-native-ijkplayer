@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.github.chadsmith.RCTIJKPlayer;
+package com.github.iwave_fe.RCTIJKPlayer;
 
 import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;

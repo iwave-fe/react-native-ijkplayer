@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.github.chadsmith.RCTIJKPlayer;
+package com.github.iwave_fe.RCTIJKPlayer;
 
 import android.annotation.TargetApi;
 import android.content.Context;

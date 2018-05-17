@@ -1,4 +1,4 @@
-package com.github.chadsmith.RCTIJKPlayer;
+package com.github.iwave_fe.RCTIJKPlayer;
 
 import android.support.annotation.Nullable;
 
@@ -7,7 +7,7 @@ import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
-import com.github.chadsmith.RCTIJKPlayer.RCTIJKPlayer.Events;
+import com.github.iwave_fe.RCTIJKPlayer.RCTIJKPlayer.Events;
 
 import java.io.IOException;
 import java.util.Map;

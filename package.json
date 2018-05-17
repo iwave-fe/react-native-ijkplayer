@@ -5,7 +5,7 @@
   "main": "./IJKPlayer.js",
   "module": "./IJKPlayer.js",
   "license": "MIT",
-  "author": "Chad Smith <chad@developer.email> (https://github.com/chadsmith)",
+  "author": "iwave-fe <iwave-fe@gmail.com> (https://github.com/iwave-fe)",
   "contributors": [
     {
       "name": "wangcong",
@@ -14,12 +14,16 @@
     {
       "name": "Zhen Tian",
       "email": "uimeet@gmail.com"
+    },
+    {
+      "name": "Chad Smith",
+      "email": "chad@developer.email"
     }
   ],
-  "homepage": "https://github.com/chadsmith/react-native-ijkplayer",
+  "homepage": "https://github.com/iwave-fe/react-native-ijkplayer",
   "repository": {
     "type": "git",
-    "url": "git@github.com:chadsmith/react-native-ijkplayer.git"
+    "url": "git@github.com:iwave-fe/react-native-ijkplayer.git"
   },
   "dependencies": {
     "prop-types": "^15.6.0"

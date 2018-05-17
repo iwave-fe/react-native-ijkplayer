@@ -1,4 +1,4 @@
-package com.github.chadsmith.RCTIJKPlayer;
+package com.github.iwave_fe.RCTIJKPlayer;
 
 
 import com.facebook.react.ReactPackage;
