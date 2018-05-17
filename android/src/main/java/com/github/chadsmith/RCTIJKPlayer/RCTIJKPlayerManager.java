@@ -50,9 +50,11 @@ public class RCTIJKPlayerManager extends SimpleViewManager<RCTIJKPlayer> {
     public void setSrc(final RCTIJKPlayer videoView, @Nullable ReadableMap src) throws IOException {
         String uri = src.getString(PROP_SRC_URI);
         ReadableMap headers = null;
-        if (src.hasKey(PROP_SRC_HEADERS))
-            headers = src.getMap(PROP_SRC_HEADERS);
-        String userAgent = src.getString(PROP_SRC_USER_AGENT);
+        // test
+        //if (src.hasKey(PROP_SRC_HEADERS))
+        //    headers = src.getMap(PROP_SRC_HEADERS);
+        //String userAgent = src.getString(PROP_SRC_USER_AGENT);
+        String userAgent = null;
         videoView.setSrc(uri, headers, userAgent);
     }
 
