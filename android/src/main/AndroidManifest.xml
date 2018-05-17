@@ -1,6 +1,6 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.iwave-fe.RCTIJKPlayer"
+    package="com.github.iwave_fe.RCTIJKPlayer"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-sdk tools:overrideLibrary="tv.danmaku.ijk.media.player_arm64,tv.danmaku.ijk.media.player_x86_64"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
